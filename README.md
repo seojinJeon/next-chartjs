@@ -1,7 +1,10 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Video link
+## ✔️ Video link
 https://www.youtube.com/watch?feature=shared&v=I-RdS_NSnak
+
+## ✔️ Chart 라이브러리 설치 명령어
+npm install chart.js
 
 ## Getting Started
 
