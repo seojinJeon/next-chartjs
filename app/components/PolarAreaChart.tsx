@@ -1,18 +1,15 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, ElementRef } from "react";
 import { Chart } from "chart.js/auto";
 
 export default function PolarAreachart() {
-  const chartRef = useRef(null);
+  const chartRef = useRef<ElementRef<"canvas">>(null);
 
   useEffect(() => {
     if (chartRef.current) {
-      if (chartRef.current.chart) {
-        chartRef.current.chart.destroy();
-      }
-
       const context = chartRef.current.getContext("2d");
+      if (!context) return;
 
       const newChart = new Chart(context, {
         type: "polarArea",
@@ -47,7 +44,9 @@ export default function PolarAreachart() {
         },
         options: {},
       });
-      chartRef.current.chart = newChart;
+      return () => {
+        newChart.destroy();
+      };
     }
   }, []);
 
